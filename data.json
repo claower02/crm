@@ -1,0 +1,97 @@
+[
+  {
+    "id": 187,
+    "status": "new",
+    "client": "Надежда",
+    "phone": "+7 701 443-84-93",
+    "city": "Алматы",
+    "service": "moskitka",
+    "comment": "Здравствуйте! Пишу с сайта moskitnyesetki.kz. Подскажите, фальш...",
+    "responsible": "Динар",
+    "createdAt": "2026-04-28T09:00:00Z",
+    "updatedAt": "2026-04-28T09:07:00Z",
+    "source": "site",
+    "attachments": [],
+    "chat": [
+      {
+        "id": "m1",
+        "author": "Надежда",
+        "text": "Здравствуйте! Нужны сетки на 4 окна.",
+        "at": "2026-04-28T09:00:00Z",
+        "fromClient": true
+      }
+    ],
+    "unread": 1
+  },
+  {
+    "id": 186,
+    "status": "new",
+    "client": "Новый (Bitrotel)",
+    "phone": "+7 717 197-34-106",
+    "city": "Астана",
+    "service": "okno",
+    "comment": "Входящий звонок",
+    "responsible": "Алекс",
+    "createdAt": "2026-04-28T08:40:00Z",
+    "updatedAt": "2026-04-28T08:40:00Z",
+    "source": "call",
+    "attachments": [],
+    "chat": [],
+    "unread": 0
+  },
+  {
+    "id": 182,
+    "status": "overdue",
+    "client": "Максим",
+    "phone": "+7 770 805-77-11",
+    "city": "Алматы",
+    "service": "moskitka",
+    "comment": "Текст: Здравствуйте! Пишу с сайта eko-plastikovye.kz. Хочу получить консультацию.",
+    "responsible": "Старший оператор",
+    "createdAt": "2026-04-27T08:00:00Z",
+    "updatedAt": "2026-04-27T12:00:00Z",
+    "source": "site",
+    "attachments": [],
+    "chat": [],
+    "unread": 0
+  },
+  {
+    "id": 178,
+    "status": "manager",
+    "client": "Nuraly",
+    "phone": "+7 701 077-72-27",
+    "city": "Алматы",
+    "service": "moskitka",
+    "address": "ул. Абая, д. 12",
+    "comment": "Текст: Медиа/Файл. Дует из окна, нужна консультация.",
+    "responsible": "Алекс",
+    "createdAt": "2026-04-28T05:00:00Z",
+    "updatedAt": "2026-04-28T09:40:00Z",
+    "source": "whatsapp",
+    "amount": 28500,
+    "attachments": [
+      {
+        "id": "a2",
+        "name": "zamer.pdf",
+        "size": 124000,
+        "kind": "doc"
+      }
+    ],
+    "chat": [
+      {
+        "id": "m2",
+        "author": "Nuraly",
+        "text": "Добрый день, можно сегодня замерщика?",
+        "at": "2026-04-28T05:00:00Z",
+        "fromClient": true
+      },
+      {
+        "id": "m3",
+        "author": "Алекс",
+        "text": "Здравствуйте! Сейчас уточню график.",
+        "at": "2026-04-28T05:30:00Z"
+      }
+    ],
+    "unread": 0
+  }
+]
