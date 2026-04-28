@@ -69,10 +69,10 @@ export function DealDrawer() {
           <TabsList className="mx-5 mt-3 grid w-auto grid-cols-3">
             <TabsTrigger value="info">Информация</TabsTrigger>
             <TabsTrigger value="chat" className="relative">
-              Чат {deal.chat.length > 0 && <span className="ml-1 text-muted-foreground">({deal.chat.length})</span>}
+              Чат {(deal.chat?.length ?? 0) > 0 && <span className="ml-1 text-muted-foreground">({deal.chat.length})</span>}
             </TabsTrigger>
             <TabsTrigger value="files">
-              Файлы {deal.attachments.length > 0 && <span className="ml-1 text-muted-foreground">({deal.attachments.length})</span>}
+              Файлы {(deal.attachments?.length ?? 0) > 0 && <span className="ml-1 text-muted-foreground">({deal.attachments.length})</span>}
             </TabsTrigger>
           </TabsList>
 
@@ -165,7 +165,7 @@ export function DealDrawer() {
           {/* CHAT */}
           <TabsContent value="chat" className="flex flex-1 flex-col overflow-hidden p-0">
             <div className="flex-1 space-y-2 overflow-y-auto px-5 py-4">
-              {deal.chat.length === 0 && (
+              {(deal.chat?.length ?? 0) === 0 && (
                 <div className="flex h-full items-center justify-center text-center text-sm text-muted-foreground">
                   Нет сообщений в чате
                 </div>
@@ -224,7 +224,7 @@ export function DealDrawer() {
               Прикрепить файл (фото, чертёж)
             </Button>
             <div className="mt-3 space-y-2">
-              {deal.attachments.length === 0 && (
+              {(deal.attachments?.length ?? 0) === 0 && (
                 <p className="py-6 text-center text-xs text-muted-foreground">Нет прикреплённых файлов</p>
               )}
               {deal.attachments.map((a) => (

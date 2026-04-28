@@ -81,12 +81,12 @@ function DealCard({ deal, onClick, onDragStart }: { deal: Deal; onClick: () => v
           {SERVICE_LABELS[deal.service]}
         </span>
         <div className="flex items-center gap-2">
-          {deal.attachments.length > 0 && (
+          {(deal.attachments?.length ?? 0) > 0 && (
             <span className="flex items-center gap-0.5">
               <Paperclip className="h-3 w-3" /> {deal.attachments.length}
             </span>
           )}
-          {deal.chat.length > 0 && (
+          {(deal.chat?.length ?? 0) > 0 && (
             <span className="flex items-center gap-0.5">
               <MessageSquare className="h-3 w-3" /> {deal.chat.length}
             </span>

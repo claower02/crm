@@ -133,7 +133,15 @@ func saveDeals() {
 func getDeals(c *gin.Context) {
 	mu.RLock()
 	defer mu.RUnlock()
-	c.JSON(http.StatusOK, deals)
+	
+	// Ensure nil slices are returned as empty arrays [] instead of null
+	safeDeals := make([]Deal, len(deals))
+	copy(safeDeals, deals)
+	for i := range safeDeals {
+		ensureSlices(&safeDeals[i])
+	}
+	
+	c.JSON(http.StatusOK, safeDeals)
 }
 
 func createDeal(c *gin.Context) {
@@ -157,10 +165,20 @@ func createDeal(c *gin.Context) {
 	newDeal.CreatedAt = time.Now().Format(time.RFC3339)
 	newDeal.UpdatedAt = newDeal.CreatedAt
 
+	ensureSlices(&newDeal)
 	deals = append([]Deal{newDeal}, deals...) // Add to top
 	saveDeals()
 
 	c.JSON(http.StatusCreated, newDeal)
+}
+
+func ensureSlices(d *Deal) {
+	if d.Attachments == nil {
+		d.Attachments = []Attachment{}
+	}
+	if d.Chat == nil {
+		d.Chat = []ChatMessage{}
+	}
 }
 
 func updateDeal(c *gin.Context) {
@@ -178,6 +196,7 @@ func updateDeal(c *gin.Context) {
 		if d.ID == id {
 			updatedDeal.ID = id
 			updatedDeal.UpdatedAt = time.Now().Format(time.RFC3339)
+			ensureSlices(&updatedDeal)
 			deals[i] = updatedDeal
 			saveDeals()
 			c.JSON(http.StatusOK, updatedDeal)
@@ -205,6 +224,7 @@ func moveDeal(c *gin.Context) {
 		if d.ID == id {
 			deals[i].Status = body.Status
 			deals[i].UpdatedAt = time.Now().Format(time.RFC3339)
+			ensureSlices(&deals[i])
 			saveDeals()
 			c.JSON(http.StatusOK, deals[i])
 			return
